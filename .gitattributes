@@ -1,0 +1,13 @@
+# Normalize text files across Windows and Linux
+* text=auto
+
+# ML source and reproducibility artifacts
+*.py text eol=lf
+*.ipynb text eol=lf
+*.csv text eol=lf
+*.json text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf

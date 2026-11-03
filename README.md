@@ -2,7 +2,13 @@
 
 EcoVision is an Android-first Flutter application intended to classify the dominant waste material in a photo, using an independently trained TensorFlow Lite image classifier running **offline**.
 
-> **Project status:** Week 1 starter scaffold. The Flutter application and ML model have **not** been built, trained, or evaluated yet. This repository does not claim verified accuracy or runtime performance.
+> **Project status (November 2026):** Week 1 dataset
+> preparation and Week 2 MobileNetV2 training are completed.
+> Two models have been trained and evaluated on the validation
+> set. The Flutter starter scaffold exists, but the MVP,
+> TensorFlow Lite integration, and Android inference are
+> not yet implemented. Independent test-set evaluation
+> has not been performed.
 
 ## Planned MVP
 
@@ -38,8 +44,9 @@ After installing Flutter and Android SDK:
 ```powershell
 flutter doctor -v
 flutter doctor --android-licenses
-flutter create --platforms=android --project-name ecovision mobile
 cd mobile
+flutter pub get
+flutter analyze
 flutter test
 flutter run
 ```
@@ -61,7 +68,7 @@ See [ml/data/README.md](ml/data/README.md) for attribution and limitations and [
 
 ```text
 ecovision-flutter-ml/
-├── mobile/                  # generated with flutter create (not included yet)
+├── mobile/                  #  # Flutter starter scaffold
 ├── ml/
 │   ├── notebooks/           # Jupyter EDA
 │   ├── src/                 # reusable Python logic
