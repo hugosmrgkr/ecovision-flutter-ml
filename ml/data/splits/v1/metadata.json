@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "dataset": "TrashNet",
+  "random_state": 42,
+  "phash_threshold": 6,
+  "total_images": 2524,
+  "total_groups": 2489,
+  "split_counts": {
+    "train": 1766,
+    "test": 380,
+    "val": 378
+  },
+  "review_status": "provisional_visual_review"
+}

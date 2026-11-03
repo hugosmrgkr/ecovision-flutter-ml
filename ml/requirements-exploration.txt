@@ -1,0 +1,9 @@
+# Week 1 only. TensorFlow will be added for Week 2 after environment validation.
+numpy>=1.26,<3
+pandas>=2.2,<3
+matplotlib>=3.8,<4
+Pillow>=10,<13
+scikit-learn>=1.5,<2
+ipykernel>=6,<8
+jupyter>=1,<2
+pytest>=8,<10

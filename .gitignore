@@ -1,0 +1,37 @@
+# Python and Jupyter
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.mypy_cache/
+.ruff_cache/
+
+# Data: never commit image datasets or generated local artifacts
+ml/data/raw/
+ml/data/processed/
+ml/data/**/*.zip
+ml/reports/generated/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+key.properties
+
+# Flutter / Dart
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/build/
+mobile/.metadata
+mobile/android/local.properties
+mobile/android/key.properties
+
+# Editor / OS
+.vscode/settings.json
+.DS_Store
+Thumbs.db

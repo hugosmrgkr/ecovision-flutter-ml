@@ -1,0 +1,4 @@
+keep_path,exclude_path,reviewed_label,status
+glass/glass115.jpg,metal/metal91.jpg,glass,provisional_visual_review
+plastic/plastic152.jpg,glass/glass176.jpg,plastic,provisional_visual_review
+glass/glass389.jpg,plastic/plastic332.jpg,glass,provisional_visual_review
