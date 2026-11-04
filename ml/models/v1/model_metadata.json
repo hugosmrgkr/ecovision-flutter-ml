@@ -1,0 +1,53 @@
+{
+  "model_version": "v1.0.0",
+  "architecture": "MobileNetV2 frozen ImageNet backbone, custom six-class head",
+  "source_checkpoint": "mobilenetv2_frozen_20261103_155149/best_model.keras",
+  "source_checkpoint_sha256": "0d560451fbd667f42c852752436a0ffc77f8068b8bd3b326ded4bd16bc3e6023",
+  "tflite_filename": "ecovision_mobilenetv2_float32_v1.tflite",
+  "tflite_sha256": "203947d3ce6b9fcacee91d5827a1ba0cefc2b3cf0207e9ffe1dbd7825f6d1aed",
+  "tflite_size_bytes": 8926988,
+  "conversion": "TFLite default float32; no quantization",
+  "tensorflow_version": "2.21.0",
+  "input": {
+    "shape": [
+      1,
+      224,
+      224,
+      3
+    ],
+    "dtype": "float32",
+    "color": "RGB",
+    "pixel_value_range": "0 to 255",
+    "external_preprocessing": "decode RGB, resize bilinear with antialias=True to 224x224",
+    "internal_rescaling": "x / 127.5 - 1"
+  },
+  "output": {
+    "shape": [
+      1,
+      6
+    ],
+    "dtype": "float32",
+    "type": "softmax probabilities"
+  },
+  "label_order": [
+    "cardboard",
+    "glass",
+    "metal",
+    "paper",
+    "plastic",
+    "trash"
+  ],
+  "parity": {
+    "split": "validation_v1",
+    "samples": 12,
+    "top1_matches": 12,
+    "max_abs_probability_difference": 3.844499588012695e-06,
+    "atol": 0.001,
+    "rtol": 0.001
+  },
+  "limitations": [
+    "TensorFlow/TFLite same-input parity does not prove Flutter image preprocessing parity",
+    "Android real-device inference latency and offline integration are pending",
+    "Real-world smartphone-photo evaluation is pending"
+  ]
+}
