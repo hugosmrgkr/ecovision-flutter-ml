@@ -1,30 +1,42 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:ecovision/main.dart';
+import 'package:ecovision/app/app.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Home displays Pilahin branding and scan action', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: PilahinApp()));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Pilahin'), findsOneWidget);
+    expect(find.text('Mulai Scan'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  testWidgets('Scan button navigates to Scan placeholder', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: PilahinApp()));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    final scanButton = find.text('Mulai Scan');
+
+    // Scroll sampai tombol terlihat di layar.
+    await tester.ensureVisible(scanButton);
+    await tester.pumpAndSettle();
+
+    // Tekan tombol setelah terlihat.
+    await tester.tap(scanButton);
+    await tester.pumpAndSettle();
+
+    expect(find.text('Pilih gambar untuk dianalisis'), findsOneWidget);
+  });
+
+  testWidgets('History action navigates to empty history state', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const ProviderScope(child: PilahinApp()));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.byTooltip('Riwayat Scan'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Belum ada riwayat scan'), findsOneWidget);
   });
 }
